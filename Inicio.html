@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ELITROX: descubre motocicletas, marcas, modelos, características técnicas, precios y novedades.">
+
+    <title>ELITROX | Más allá de la velocidad</title>
+
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="css/mejoras.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="Inicio.html" class="logo">
+        <span class="logo-icon">🏍️</span>
+        <span>ELITROX<span class="verde">X</span></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+            aria-label="Abrir menú" aria-expanded="false">
+        ☰
+    </button>
+
+    <nav id="menu" class="menu">
+        <a class="activo" href="Inicio.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="Caracteristicas.html">Características técnicas</a>
+        <a href="Marcas.html">Marcas de motos</a>
+        <a href="Quienes-somos.html">¿Quiénes somos?</a>
+        <a href="Contacto.html">Contacto</a>
+
+        <button id="modoBtn" class="modo-btn"
+                aria-label="Cambiar tema">🌙</button>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-contenido">
+            <p class="etiqueta">
+                <span></span> INFORMACIÓN SOBRE MOTOCICLETAS
+            </p>
+
+            <h1>ELITRO<span class="verde">X</span></h1>
+
+            <p class="eslogan">Más allá de la velocidad</p>
+
+            <p class="descripcion">
+                Aprende más sobre tu moto con información completa
+                y confiable acerca de marcas, modelos, motores,
+                características, precios y novedades.
+                Conoce la máquina que conduces.
+            </p>
+
+            <div class="botones">
+                <a href="catalogo.html" class="boton">
+                    🏍️ Conoce el catálogo <span>→</span>
+                </a>
+
+                <a href="Caracteristicas.html"
+                   class="boton boton-secundario">
+                    ⚙️ Características técnicas <span>→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-etiqueta">
+            <span class="punto-verde"></span>
+            PASIÓN · POTENCIA · LIBERTAD
+        </div>
+    </section>
+
+    <section class="seccion">
+        <h2>¿Qué encontrarás <span class="verde">aquí?</span></h2>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="tarjeta-icono">🏍️</div>
+                <h3>¿Quiénes somos?</h3>
+                <p>
+                    Somos ELITROX, un proyecto dedicado al mundo
+                    de las motocicletas. Buscamos ofrecer información
+                    sobre modelos, marcas y características para
+                    ayudar a los usuarios a conocer más sobre ellas.
+                </p>
+                <a href="Quienes-somos.html">
+                    Conoce nuestro proyecto →
+                </a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="tarjeta-icono">🔍</div>
+                <h3>Catálogo</h3>
+                <p>
+                    Explora marcas, modelos, fotografías, precios
+                    y diferentes tipos de motocicletas.
+                </p>
+                <a href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="tarjeta-icono">⚙️</div>
+                <h3>Características</h3>
+                <p>
+                    Conoce la cilindrada, potencia, torque,
+                    frenos, consumo, peso y capacidad del tanque.
+                </p>
+                <a href="Caracteristicas.html">
+                    Ver características →
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="mensaje">
+        <div class="casco">🏍️</div>
+
+        <div class="mensaje-texto">
+            <h2>Antes de salir a rodar...</h2>
+            <p id="mensajeConsejo">
+                Tu seguridad es lo más importante. Usa siempre
+                el casco y el equipo de protección adecuado.
+            </p>
+        </div>
+
+        <button class="boton-consejo" id="consejoBtn">
+            ↻ Dame otro consejo
+        </button>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 <strong>ELITROX</strong></p>
+    <p>Proyecto educativo para motociclistas</p>
+    <p class="footer-eslogan">Más allá de la velocidad</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

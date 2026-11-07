@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Contacta con ELITROX para resolver tus dudas sobre motocicletas, marcas, modelos y características técnicas.">
+
+    <title>Contacto | ELITROX</title>
+
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="css/mejoras.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="Inicio.html" class="logo">
+        <span class="logo-icon">🏍️</span>
+        <span>ELITROX<span class="verde">X</span></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+            aria-label="Abrir menú" aria-expanded="false">
+        ☰
+    </button>
+
+    <nav id="menu" class="menu">
+
+        <a href="Inicio.html">Inicio</a>
+        <a href="catalogo.html">Catálogo de motocicletas</a>
+        <a href="Caracteristicas.html">Características técnicas</a>
+        <a href="Marcas.html">Marcas de motos</a>
+        <a href="Quienes-somos.html">¿Quiénes somos?</a>
+        <a href="Contacto.html" class="activo">Contacto</a>
+
+
+        <button id="modoBtn" class="modo-btn"
+                aria-label="Cambiar tema">🌙</button>
+
+    </nav>
+
+</header>
+
+<main class="contenedor">
+
+    <section class="contacto-form">
+
+        <!-- INFORMACIÓN DE ELITROX -->
+
+        <div class="contacto-info">
+
+            <p class="etiqueta">
+                <span></span> ESTAMOS PARA AYUDARTE
+            </p>
+
+            <h1>
+                Contacta con <span class="verde">ELITROX</span>
+            </h1>
+
+            <p class="descripcion-contacto">
+                ¿Tienes preguntas sobre motocicletas, marcas,
+                modelos o características técnicas? Escríbenos.
+                Queremos ayudarte a conocer más sobre el mundo
+                de las dos ruedas.
+            </p>
+
+            <div class="contacto-directo">
+
+                <h3>Información de contacto</h3>
+
+                <p>
+                    🏍️ ELITROX — Más allá de la velocidad
+                </p>
+
+                <p>
+                    📍 Bogotá, Colombia
+                </p>
+
+                <p>
+                    📧 Correo:
+                    <a href="mailto:elitrox4@gmail.com">
+                        elitrox4@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    📸 Instagram:
+                    <a href="https://www.instagram.com/elitrox_bike/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        @elitrox_bike
+                    </a>
+                </p>
+
+                <p>
+                    🎵 TikTok:
+                    <a href="https://www.tiktok.com/@elitrox_"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        @elitrox_
+                    </a>
+                </p>
+
+                <p class="nota-contacto">
+                    Síguenos en nuestras redes sociales para conocer
+                    más sobre motocicletas, modelos, características
+                    y novedades del mundo motero.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO DE CONTACTO -->
+
+        <form action="procesar_contacto.php"
+              method="POST"
+              id="formContacto">
+
+            <h2>Envíanos un mensaje</h2>
+
+            <p class="form-descripcion">
+                Completa los siguientes campos para contactarnos.
+            </p>
+
+            <label for="nombre">Nombre completo</label>
+
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Escribe tu nombre completo"
+                autocomplete="name"
+                required
+            >
+
+            <label for="correo">Correo electrónico</label>
+
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="ejemplo@correo.com"
+                autocomplete="email"
+                required
+            >
+
+            <label for="asunto">Asunto</label>
+
+            <input
+                type="text"
+                id="asunto"
+                name="asunto"
+                placeholder="¿Sobre qué deseas consultarnos?"
+                required
+            >
+
+            <label for="mensaje">Tu mensaje</label>
+
+            <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                placeholder="Escribe aquí tu pregunta o sugerencia..."
+                required
+            ></textarea>
+
+            <button type="submit" class="boton">
+                Enviar mensaje →
+            </button>
+
+            <p class="privacidad">
+                Tus datos se utilizarán para gestionar tu consulta.
+            </p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>© 2026 <strong>ELITROX</strong></p>
+
+    <p>Proyecto educativo para motociclistas</p>
+
+    <p class="footer-eslogan">
+        Más allá de la velocidad
+    </p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

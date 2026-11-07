@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conoce las principales marcas de motocicletas y sus diferentes estilos en ELITROX.">
+
+    <title>Marcas de motocicletas | ELITROX</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --verde: #83f52c;
+            --fondo: #050b0e;
+            --tarjeta: #101719;
+            --blanco: #f5f7f7;
+            --gris: #b9c2c7;
+            --borde: #344147;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--fondo);
+            color: var(--blanco);
+        }
+
+        header {
+            background: #091216;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .verde {
+            color: var(--verde);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a.activo {
+            color: var(--verde);
+        }
+
+        .portada {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(135deg, #101719, #183020);
+        }
+
+        .etiqueta {
+            color: var(--verde);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .portada h1 {
+            font-size: clamp(30px, 5vw, 48px);
+        }
+
+        .portada p.descripcion {
+            max-width: 750px;
+            margin: 20px auto 0;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        .contenedor {
+            padding: 45px 6%;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            color: var(--gris);
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .filtros {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .filtros input,
+        .filtros select {
+            width: 100%;
+            max-width: 340px;
+            padding: 14px;
+            background: var(--tarjeta);
+            color: white;
+            border: 1px solid var(--borde);
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .filtros input:focus,
+        .filtros select:focus {
+            outline: 2px solid var(--verde);
+        }
+
+        .contador {
+            text-align: center;
+            color: var(--gris);
+            margin-bottom: 25px;
+        }
+
+        .marcas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .marca-card {
+            background: var(--tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .marca-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--verde);
+        }
+
+        .marca-card[hidden] {
+            display: none;
+        }
+
+        .marca-imagen {
+            height: 165px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #18221c, #091216);
+            border-bottom: 1px solid var(--borde);
+            padding: 20px;
+        }
+
+        .marca-imagen span {
+            color: var(--verde);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .marca-info {
+            padding: 23px;
+        }
+
+        .pais {
+            color: var(--verde);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .marca-info h3 {
+            font-size: 23px;
+            margin: 12px 0;
+        }
+
+        .marca-info p {
+            color: var(--gris);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .marca-info ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .marca-info li {
+            color: var(--gris);
+            padding: 8px 0;
+            border-bottom: 1px solid #263238;
+            line-height: 1.5;
+        }
+
+        .marca-info strong {
+            color: white;
+        }
+
+        .etiqueta-estilo {
+            display: inline-block;
+            padding: 7px 10px;
+            border: 1px solid var(--verde);
+            border-radius: 20px;
+            color: var(--verde);
+            font-size: 12px;
+            margin-bottom: 17px;
+        }
+
+        .boton {
+            display: block;
+            padding: 12px;
+            background: var(--verde);
+            color: #050b0e;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: #a2ff61;
+        }
+
+        .sin-resultados {
+            text-align: center;
+            color: var(--gris);
+            padding: 30px;
+        }
+
+        .informacion {
+            margin: 10px 6% 50px;
+            padding: 28px;
+            background: var(--tarjeta);
+            border-left: 4px solid var(--verde);
+            border-radius: 8px;
+        }
+
+        .informacion h2 {
+            margin-bottom: 15px;
+        }
+
+        .informacion p {
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #091216;
+            padding: 25px;
+            text-align: center;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--verde);
+        }
+
+        @media (max-width: 1000px) {
+            .marcas-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 620px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .marcas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contenedor {
+                padding: 35px 5%;
+            }
+
+            .portada {
+                padding: 55px 18px;
+            }
+
+            .informacion {
+                margin: 10px 5% 40px;
+                padding: 22px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mejoras.css">
+</head>
+
+<body>
+
+<header>
+    <a href="Inicio.html" class="logo">
+        🏍️ ELITRO<span class="verde">X</span>
+    </a>
+
+    <nav>
+        <a href="Inicio.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="Caracteristicas.html">Características</a>
+        <a href="Marcas.html" class="activo">Marcas</a>
+        <a href="Quienes-somos.html">¿Quiénes somos?</a>
+        <a href="Contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <p class="etiqueta">ELITROX / MARCAS</p>
+
+    <h1>EL MUNDO DE LAS <span class="verde">MOTOS</span></h1>
+
+    <p class="descripcion">
+        Descubre fabricantes de motocicletas de diferentes países,
+        conoce sus estilos y explora las categorías en las que se destacan.
+        Cada marca tiene una historia y una propuesta diferente.
+    </p>
+</section>
+
+<main class="contenedor">
+
+    <h2 class="titulo">
+        Marcas de <span class="verde">motocicletas</span>
+    </h2>
+
+    <p class="subtitulo">
+        Busca un fabricante o filtra por su estilo de motocicletas.
+    </p>
+
+    <div class="filtros">
+        <input
+            type="search"
+            id="buscarMarca"
+            placeholder="Buscar marca..."
+            aria-label="Buscar marca de motocicleta">
+
+        <select id="filtroEstilo" aria-label="Filtrar por estilo">
+            <option value="todas">Todos los estilos</option>
+            <option value="urbana">Urbanas y uso diario</option>
+            <option value="deportiva">Deportivas</option>
+            <option value="aventura">Aventura y doble propósito</option>
+            <option value="touring">Turismo y viajes</option>
+            <option value="cruiser">Cruiser y estilo clásico</option>
+            <option value="premium">Alta gama</option>
+        </select>
+    </div>
+
+    <p id="contadorMarcas" class="contador">
+        Mostrando 9 marcas
+    </p>
+
+    <div class="marcas-grid" id="listaMarcas">
+
+        <!-- YAMAHA -->
+        <article class="marca-card"
+                 data-estilos="urbana deportiva"
+                 data-nombre="yamaha japonesa deportiva urbana">
+
+            <div class="marca-imagen">
+                <span>YAMAHA</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">JAPÓN</span>
+                <h3>Yamaha</h3>
+
+                <p>
+                    Fabricante conocido por sus motocicletas urbanas,
+                    deportivas, de aventura y de competición.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Japón</li>
+                    <li><strong>Estilos:</strong> urbanos y deportivos</li>
+                    <li><strong>Ejemplos:</strong> FZ, MT, R-Series</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Versatilidad y rendimiento</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- HONDA -->
+        <article class="marca-card"
+                 data-estilos="urbana deportiva aventura touring"
+                 data-nombre="honda japonesa urbana deportiva aventura turismo">
+
+            <div class="marca-imagen">
+                <span>HONDA</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">JAPÓN</span>
+                <h3>Honda</h3>
+
+                <p>
+                    Ofrece modelos para desplazamientos diarios,
+                    viajes, aventura y conducción deportiva.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Japón</li>
+                    <li><strong>Estilos:</strong> urbanos y de aventura</li>
+                    <li><strong>Ejemplos:</strong> CB, XR, Africa Twin</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Tecnología y confiabilidad</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- SUZUKI -->
+        <article class="marca-card"
+                 data-estilos="urbana deportiva aventura touring"
+                 data-nombre="suzuki japonesa deportiva touring aventura">
+
+            <div class="marca-imagen">
+                <span>SUZUKI</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">JAPÓN</span>
+                <h3>Suzuki</h3>
+
+                <p>
+                    Cuenta con motocicletas para ciudad, carretera,
+                    turismo y conducción deportiva.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Japón</li>
+                    <li><strong>Estilos:</strong> deportivos y touring</li>
+                    <li><strong>Ejemplos:</strong> GSX, V-Strom, DR</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Potencia y aventura</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- KAWASAKI -->
+        <article class="marca-card"
+                 data-estilos="deportiva urbana premium"
+                 data-nombre="kawasaki japonesa deportiva naked alta gama">
+
+            <div class="marca-imagen">
+                <span>KAWASAKI</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">JAPÓN</span>
+                <h3>Kawasaki</h3>
+
+                <p>
+                    Reconocida por sus modelos deportivos, naked
+                    y motocicletas orientadas al rendimiento.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Japón</li>
+                    <li><strong>Estilos:</strong> deportivos y naked</li>
+                    <li><strong>Ejemplos:</strong> Ninja, Z, Versys</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Diseño deportivo</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- BAJAJ -->
+        <article class="marca-card"
+                 data-estilos="urbana deportiva"
+                 data-nombre="bajaj india urbana deportiva pulsar">
+
+            <div class="marca-imagen">
+                <span>BAJAJ</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">INDIA</span>
+                <h3>Bajaj</h3>
+
+                <p>
+                    Tiene modelos orientados al transporte cotidiano,
+                    con opciones de apariencia deportiva.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> India</li>
+                    <li><strong>Estilos:</strong> urbanos y naked</li>
+                    <li><strong>Ejemplos:</strong> Pulsar, Dominar</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Uso diario y carretera</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- TVS -->
+        <article class="marca-card"
+                 data-estilos="urbana deportiva"
+                 data-nombre="tvs india urbana deportiva apache">
+
+            <div class="marca-imagen">
+                <span>TVS</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">INDIA</span>
+                <h3>TVS</h3>
+
+                <p>
+                    Fabrica motocicletas para el uso cotidiano
+                    y modelos con diseño deportivo.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> India</li>
+                    <li><strong>Estilos:</strong> urbanos y deportivos</li>
+                    <li><strong>Ejemplos:</strong> Raider, Apache</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Agilidad y practicidad</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- KTM -->
+        <article class="marca-card"
+                 data-estilos="deportiva aventura premium"
+                 data-nombre="ktm austriaca deportiva aventura duke adventure">
+
+            <div class="marca-imagen">
+                <span>KTM</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">AUSTRIA</span>
+                <h3>KTM</h3>
+
+                <p>
+                    Se caracteriza por sus diseños deportivos y
+                    motocicletas orientadas a la aventura y al todoterreno.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Austria</li>
+                    <li><strong>Estilos:</strong> deportivos y aventura</li>
+                    <li><strong>Ejemplos:</strong> Duke, Adventure</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Carácter deportivo</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- BMW MOTORRAD -->
+        <article class="marca-card"
+                 data-estilos="aventura touring premium"
+                 data-nombre="bmw motorrad alemana premium touring aventura">
+
+            <div class="marca-imagen">
+                <span>BMW MOTORRAD</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">ALEMANIA</span>
+                <h3>BMW Motorrad</h3>
+
+                <p>
+                    Ofrece motocicletas de turismo, aventura y
+                    alta gama, con distintas tecnologías y equipamientos.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Alemania</li>
+                    <li><strong>Estilos:</strong> touring y aventura</li>
+                    <li><strong>Ejemplos:</strong> GS, R, S</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Tecnología y confort</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+        <!-- ROYAL ENFIELD -->
+        <article class="marca-card"
+                 data-estilos="cruiser touring"
+                 data-nombre="royal enfield india clasica cruiser turismo meteor classic">
+
+            <div class="marca-imagen">
+                <span>ROYAL ENFIELD</span>
+            </div>
+
+            <div class="marca-info">
+                <span class="pais">INDIA</span>
+                <h3>Royal Enfield</h3>
+
+                <p>
+                    Destaca por sus diseños clásicos y motocicletas
+                    destinadas a paseos, carretera y turismo.
+                </p>
+
+                <ul>
+                    <li><strong>Origen:</strong> Reino Unido; actualmente tiene su base de fabricación principal en India</li>
+                    <li><strong>Estilos:</strong> clásicos y cruiser</li>
+                    <li><strong>Ejemplos:</strong> Classic, Meteor, Himalayan</li>
+                </ul>
+
+                <span class="etiqueta-estilo">Estilo clásico</span>
+
+                <a class="boton" href="catalogo.html">
+                    Explorar catálogo →
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+    <p id="sinResultados" class="sin-resultados" hidden>
+        No encontramos marcas con esa búsqueda. Intenta con otro nombre
+        o selecciona un estilo diferente.
+    </p>
+
+</main>
+
+<section class="informacion">
+    <h2 class="verde">¿Cómo elegir una marca?</h2>
+
+    <p>
+        Antes de elegir una motocicleta, compara el presupuesto,
+        el uso que le darás, el consumo de combustible, la comodidad,
+        el mantenimiento, la disponibilidad de repuestos y los centros
+        de servicio en tu ciudad. Una misma marca puede fabricar modelos
+        con características muy diferentes.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 <strong>ELITROX</strong></p>
+    <p>Proyecto educativo sobre motocicletas</p>
+    <p>Más allá de la velocidad</p>
+</footer>
+
+<script>
+    const buscarMarca = document.getElementById("buscarMarca");
+    const filtroEstilo = document.getElementById("filtroEstilo");
+    const tarjetas = document.querySelectorAll(".marca-card");
+    const contador = document.getElementById("contadorMarcas");
+    const sinResultados = document.getElementById("sinResultados");
+
+    function filtrarMarcas() {
+        const texto = buscarMarca.value.toLowerCase().trim();
+        const estilo = filtroEstilo.value;
+        let visibles = 0;
+
+        tarjetas.forEach(function(tarjeta) {
+            const nombre = tarjeta.dataset.nombre.toLowerCase();
+            const estilos = tarjeta.dataset.estilos.split(" ");
+
+            const coincideNombre = nombre.includes(texto);
+            const coincideEstilo =
+                estilo === "todas" || estilos.includes(estilo);
+
+            if (coincideNombre && coincideEstilo) {
+                tarjeta.hidden = false;
+                visibles++;
+            } else {
+                tarjeta.hidden = true;
+            }
+        });
+
+        contador.textContent =
+            "Mostrando " + visibles + " de " + tarjetas.length + " marcas";
+
+        sinResultados.hidden = visibles !== 0;
+    }
+
+    buscarMarca.addEventListener("input", filtrarMarcas);
+    filtroEstilo.addEventListener("change", filtrarMarcas);
+
+    filtrarMarcas();
+</script>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

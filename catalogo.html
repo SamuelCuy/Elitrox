@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Explora el catálogo de motocicletas ELITROX: motos deportivas, urbanas, touring, naked y doble propósito.">
+
+    <title>Catálogo de motocicletas | ELITROX</title>
+
+    <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="css/mejoras.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="Inicio.html" class="logo">
+        <span class="logo-icon">🏍️</span>
+        <span>ELITRO<span class="verde">X</span></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+            aria-label="Abrir menú" aria-expanded="false">
+        ☰
+    </button>
+
+    <nav id="menu" class="menu">
+        <a href="Inicio.html">Inicio</a>
+        <a class="activo" href="catalogo.html">Catálogo</a>
+        <a href="Caracteristicas.html">Características técnicas</a>
+        <a href="Marcas.html">Marcas de motos</a>
+        <a href="Quienes-somos.html">¿Quiénes somos?</a>
+        <a href="Contacto.html">Contacto</a>
+
+        <button id="modoBtn" class="modo-btn"
+                aria-label="Cambiar tema">🌙</button>
+    </nav>
+</header>
+
+<main>
+
+    <section class="catalogo-portada">
+        <p class="etiqueta">ELITROX / CATÁLOGO</p>
+
+        <h1>ENCUENTRA TU <span class="verde">MOTO IDEAL</span></h1>
+
+        <p>
+            Descubre diferentes motocicletas, compara sus características
+            y encuentra la categoría que mejor se adapta a tu estilo.
+        </p>
+    </section>
+
+    <section class="catalogo-seccion">
+
+        <div class="catalogo-titulo">
+            <h2>Catálogo de <span class="verde">motocicletas</span></h2>
+            <p>Explora las motos según su estilo y uso.</p>
+        </div>
+
+        <div class="filtros">
+            <label for="buscarMoto">Buscar motocicleta</label>
+
+            <input
+                type="search"
+                id="buscarMoto"
+                placeholder="Ejemplo: Yamaha, deportiva, urbana..."
+            >
+
+            <label for="filtroTipo">Filtrar por categoría</label>
+
+            <select id="filtroTipo">
+                <option value="todas">Todas las categorías</option>
+                <option value="urbana">Uso diario / urbana</option>
+                <option value="deportiva">Deportiva</option>
+                <option value="naked">Naked</option>
+                <option value="touring">Touring / viajes</option>
+                <option value="doble">Doble propósito</option>
+                <option value="cruiser">Cruiser</option>
+            </select>
+        </div>
+
+        <p id="contadorMotos" class="contador">
+            Mostrando motocicletas
+        </p>
+
+        <div class="catalogo-grid" id="catalogoGrid">
+
+            <!-- MOTO 1 -->
+            <article class="moto-card"
+                     data-tipo="urbana"
+                     data-busqueda="yamaha fz-s fi urbana diario ciudad">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Yamaha FZ-S FI"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">USO DIARIO</span>
+                    <h3>Yamaha FZ-S FI</h3>
+
+                    <p>
+                        Una motocicleta urbana para desplazamientos
+                        cotidianos y recorridos por la ciudad.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Yamaha</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 150 cc</li>
+                        <li><strong>Uso:</strong> ciudad</li>
+                        <li><strong>Enfoque:</strong> comodidad y practicidad</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+            <!-- MOTO 2 -->
+            <article class="moto-card"
+                     data-tipo="deportiva"
+                     data-busqueda="yamaha r15 deportiva carreras carretera">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Yamaha YZF-R15"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">DEPORTIVA</span>
+                    <h3>Yamaha YZF-R15</h3>
+
+                    <p>
+                        Diseño deportivo, posición de conducción
+                        inclinada y orientación hacia el rendimiento.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Yamaha</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 155 cc</li>
+                        <li><strong>Uso:</strong> carretera y ciudad</li>
+                        <li><strong>Enfoque:</strong> estilo deportivo</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+            <!-- MOTO 3 -->
+            <article class="moto-card"
+                     data-tipo="naked"
+                     data-busqueda="bajaj pulsar ns200 naked ciudad carretera">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Bajaj Pulsar NS200"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">NAKED</span>
+                    <h3>Bajaj Pulsar NS200</h3>
+
+                    <p>
+                        Una naked de apariencia agresiva, con motor
+                        de mayor cilindrada y enfoque versátil.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Bajaj</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 200 cc</li>
+                        <li><strong>Uso:</strong> ciudad y carretera</li>
+                        <li><strong>Enfoque:</strong> rendimiento y versatilidad</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+            <!-- MOTO 4 -->
+            <article class="moto-card"
+                     data-tipo="touring"
+                     data-busqueda="suzuki v-strom 650 touring viajes turismo">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Suzuki V-Strom 650"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">TOURING / VIAJES</span>
+                    <h3>Suzuki V-Strom 650</h3>
+
+                    <p>
+                        Diseñada para viajes largos, recorridos por
+                        carretera y aventuras de turismo.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Suzuki</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 645 cc</li>
+                        <li><strong>Uso:</strong> viajes y turismo</li>
+                        <li><strong>Enfoque:</strong> comodidad y autonomía</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+            <!-- MOTO 5 -->
+            <article class="moto-card"
+                     data-tipo="doble"
+                     data-busqueda="honda xr190l doble proposito aventura caminos">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Honda XR190L"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">DOBLE PROPÓSITO</span>
+                    <h3>Honda XR190L</h3>
+
+                    <p>
+                        Una moto orientada a desplazamientos diarios
+                        y recorridos por caminos de diferentes superficies.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Honda</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 184 cc</li>
+                        <li><strong>Uso:</strong> ciudad y caminos</li>
+                        <li><strong>Enfoque:</strong> versatilidad</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+            <!-- MOTO 6 -->
+            <article class="moto-card"
+                     data-tipo="cruiser"
+                     data-busqueda="royal enfield meteor 350 cruiser viajes estilo clasico">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                    alt="Imagen ilustrativa de Royal Enfield Meteor 350"
+                    loading="lazy">
+
+                <div class="moto-info">
+                    <span class="moto-categoria">CRUISER</span>
+                    <h3>Royal Enfield Meteor 350</h3>
+
+                    <p>
+                        Una motocicleta de estilo clásico, pensada
+                        para paseos tranquilos y recorridos por carretera.
+                    </p>
+
+                    <ul>
+                        <li><strong>Marca:</strong> Royal Enfield</li>
+                        <li><strong>Cilindrada:</strong> alrededor de 349 cc</li>
+                        <li><strong>Uso:</strong> paseos y carretera</li>
+                        <li><strong>Enfoque:</strong> comodidad y estilo clásico</li>
+                    </ul>
+
+                    <a class="moto-boton"
+                       href="Caracteristicas.html">
+                        Ver características →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p id="sinResultados" class="sin-resultados" hidden>
+            No encontramos motocicletas con esa búsqueda.
+            Prueba con otra marca o categoría.
+        </p>
+
+    </section>
+
+    <section class="catalogo-aviso">
+        <h2>Elige con <span class="verde">información</span></h2>
+        <p>
+            Antes de elegir una motocicleta, compara su consumo,
+            potencia, frenos, peso, altura del asiento, mantenimiento
+            y disponibilidad de repuestos. Las especificaciones pueden
+            variar según el año y la versión del modelo.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 <strong>ELITROX</strong></p>
+    <p>Proyecto educativo para amantes de las motocicletas</p>
+    <p class="footer-eslogan">Más allá de la velocidad</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+    const buscarMoto = document.getElementById("buscarMoto");
+    const filtroTipo = document.getElementById("filtroTipo");
+    const motos = document.querySelectorAll(".moto-card");
+    const contadorMotos = document.getElementById("contadorMotos");
+    const sinResultados = document.getElementById("sinResultados");
+
+    function filtrarMotos() {
+        const texto = buscarMoto.value.toLowerCase().trim();
+        const tipo = filtroTipo.value;
+        let visibles = 0;
+
+        motos.forEach(function(moto) {
+            const informacion = moto.dataset.busqueda.toLowerCase();
+            const categoria = moto.dataset.tipo;
+
+            const coincideTexto = informacion.includes(texto);
+            const coincideTipo = tipo === "todas" || categoria === tipo;
+
+            if (coincideTexto && coincideTipo) {
+                moto.hidden = false;
+                visibles++;
+            } else {
+                moto.hidden = true;
+            }
+        });
+
+        contadorMotos.textContent =
+            "Mostrando " + visibles + " de " + motos.length +
+            " motocicletas";
+
+        sinResultados.hidden = visibles !== 0;
+    }
+
+    buscarMoto.addEventListener("input", filtrarMotos);
+    filtroTipo.addEventListener("change", filtrarMotos);
+
+    filtrarMotos();
+</script>
+
+</body>
+</html>

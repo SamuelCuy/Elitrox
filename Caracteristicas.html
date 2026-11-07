@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conoce las características técnicas de las motocicletas en ELITROX.">
+
+    <title>Características técnicas | ELITROX</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --verde: #83f52c;
+            --fondo: #050b0e;
+            --tarjeta: #101719;
+            --blanco: #f5f7f7;
+            --gris: #b9c2c7;
+            --borde: #344147;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--fondo);
+            color: var(--blanco);
+        }
+
+        header {
+            background: #091216;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .verde {
+            color: var(--verde);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a.activo {
+            color: var(--verde);
+        }
+
+        .portada {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(135deg, #101719, #183020);
+        }
+
+        .etiqueta {
+            color: var(--verde);
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .portada h1 {
+            font-size: clamp(30px, 5vw, 48px);
+        }
+
+        .portada p.descripcion {
+            max-width: 750px;
+            margin: 20px auto 0;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        .contenedor {
+            padding: 45px 6%;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            color: var(--gris);
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .buscador {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            margin: 0 auto 35px;
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            background: var(--tarjeta);
+            color: white;
+            font-size: 16px;
+        }
+
+        .buscador:focus {
+            outline: 2px solid var(--verde);
+        }
+
+        .rejilla {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .caracteristica {
+            background: var(--tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .caracteristica:hover {
+            border-color: var(--verde);
+            transform: translateY(-4px);
+        }
+
+        .caracteristica[hidden] {
+            display: none;
+        }
+
+        .icono {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .caracteristica h3 {
+            color: var(--verde);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .caracteristica p {
+            color: var(--gris);
+            line-height: 1.7;
+        }
+
+        .ejemplo {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid var(--borde);
+            font-size: 14px;
+        }
+
+        .ejemplo strong {
+            color: white;
+        }
+
+        .tabla-contenedor {
+            overflow-x: auto;
+            margin-top: 45px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 580px;
+            border-collapse: collapse;
+            background: var(--tarjeta);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid var(--borde);
+        }
+
+        th {
+            background: #1b3020;
+            color: var(--verde);
+        }
+
+        td {
+            color: var(--gris);
+        }
+
+        .aviso {
+            margin: 0 6% 50px;
+            padding: 25px;
+            background: var(--tarjeta);
+            border-left: 4px solid var(--verde);
+            border-radius: 8px;
+        }
+
+        .aviso h2 {
+            margin-bottom: 12px;
+        }
+
+        .aviso p {
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 20px;
+            border-radius: 6px;
+            background: var(--verde);
+            color: #050b0e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: #a2ff61;
+        }
+
+        footer {
+            background: #091216;
+            padding: 25px;
+            text-align: center;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--verde);
+        }
+
+        @media (max-width: 950px) {
+            .rejilla {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .rejilla {
+                grid-template-columns: 1fr;
+            }
+
+            .contenedor {
+                padding: 35px 5%;
+            }
+
+            .portada {
+                padding: 55px 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mejoras.css">
+</head>
+
+<body>
+
+<header>
+    <a href="Inicio.html" class="logo">
+        🏍️ ELITRO<span class="verde">X</span>
+    </a>
+
+    <nav>
+        <a href="Inicio.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="Caracteristicas.html" class="activo">Características</a>
+        <a href="Marcas.html">Marcas</a>
+        <a href="Quienes-somos.html">¿Quiénes somos?</a>
+        <a href="Contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="portada">
+    <p class="etiqueta">ELITROX / INFORMACIÓN TÉCNICA</p>
+
+    <h1>CARACTERÍSTICAS <span class="verde">TÉCNICAS</span></h1>
+
+    <p class="descripcion">
+        Conoce los componentes y especificaciones que hacen única
+        a cada motocicleta. Aprende qué significan sus datos técnicos
+        y cómo pueden influir en su funcionamiento y uso.
+    </p>
+</section>
+
+<main class="contenedor">
+
+    <h2 class="titulo-seccion">
+        Conoce cada <span class="verde">característica</span>
+    </h2>
+
+    <p class="subtitulo">
+        Busca una característica para descubrir qué significa y para qué sirve.
+    </p>
+
+    <input
+        type="search"
+        id="buscarCaracteristica"
+        class="buscador"
+        placeholder="Buscar: motor, frenos, cilindrada..."
+        aria-label="Buscar característica técnica">
+
+    <div class="rejilla" id="listaCaracteristicas">
+
+        <article class="caracteristica"
+                 data-busqueda="cilindrada cc motor volumen cilindros">
+            <div class="icono">⚙️</div>
+            <h3>Cilindrada</h3>
+            <p>
+                Es el volumen que desplazan los pistones dentro de los
+                cilindros del motor. Se expresa normalmente en centímetros
+                cúbicos (cc).
+            </p>
+            <p class="ejemplo">
+                <strong>Ejemplo:</strong> una moto de 150 cc tiene
+                una cilindrada aproximada de 150 centímetros cúbicos.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="potencia caballos hp kw fuerza motor">
+            <div class="icono">🏁</div>
+            <h3>Potencia</h3>
+            <p>
+                Indica la capacidad del motor para realizar trabajo
+                en un tiempo determinado. Suele expresarse en caballos
+                de fuerza (hp) o kilovatios (kW).
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> ayuda a comparar el
+                rendimiento de distintos motores.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="torque par motor fuerza giro">
+            <div class="icono">🔩</div>
+            <h3>Torque</h3>
+            <p>
+                Es la fuerza de giro que produce el motor.
+                Normalmente se mide en newton metro (Nm).
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> influye en la capacidad
+                de acelerar y mover la motocicleta.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="motor cilindros refrigeracion aire liquido">
+            <div class="icono">🔧</div>
+            <h3>Tipo de motor</h3>
+            <p>
+                Describe el diseño del motor, como el número de cilindros
+                y el sistema de refrigeración, que puede ser por aire,
+                aceite o líquido, según el modelo.
+            </p>
+            <p class="ejemplo">
+                <strong>Ejemplo:</strong> motor monocilíndrico
+                de cuatro tiempos.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="transmision caja cambios velocidades embrague">
+            <div class="icono">🔗</div>
+            <h3>Transmisión</h3>
+            <p>
+                Transfiere la potencia del motor a la rueda.
+                Puede incluir caja de cambios y transmisión final
+                por cadena, correa o cardán.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> permite adaptar la fuerza
+                y velocidad a distintas condiciones de conducción.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="frenos abs disco tambor seguridad">
+            <div class="icono">🛑</div>
+            <h3>Sistema de frenos</h3>
+            <p>
+                Permite reducir la velocidad y detener la moto.
+                Puede usar frenos de disco o tambor, con ABS
+                en algunos modelos.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> es fundamental para
+                controlar la motocicleta de forma segura.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="suspension horquilla amortiguadores comodidad">
+            <div class="icono">🛞</div>
+            <h3>Suspensión</h3>
+            <p>
+                Ayuda a absorber las irregularidades del camino.
+                Generalmente incluye suspensión delantera y trasera.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> contribuye a la estabilidad,
+                comodidad y control.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="llantas neumaticos ruedas medida agarre">
+            <div class="icono">⭕</div>
+            <h3>Llantas</h3>
+            <p>
+                Son el punto de contacto con la vía.
+                Sus medidas y diseño deben corresponder a las
+                recomendaciones del fabricante.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> influyen en el agarre,
+                estabilidad y frenado.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="consumo combustible gasolina kilometros litro rendimiento">
+            <div class="icono">⛽</div>
+            <h3>Consumo de combustible</h3>
+            <p>
+                Indica cuánto combustible necesita la motocicleta
+                para recorrer una distancia. Puede expresarse
+                en km/l o l/100 km.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> ayuda a estimar los gastos
+                de uso diario.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="tanque capacidad combustible litros autonomia">
+            <div class="icono">🛢️</div>
+            <h3>Capacidad del tanque</h3>
+            <p>
+                Es la cantidad de combustible que puede almacenar
+                el depósito de la motocicleta. Se mide en litros.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> junto con el consumo,
+                ayuda a estimar la autonomía.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="peso masa kg motocicleta carga">
+            <div class="icono">⚖️</div>
+            <h3>Peso</h3>
+            <p>
+                Es la masa de la motocicleta, que suele indicarse
+                en kilogramos. Es importante distinguir el peso
+                en vacío del peso en orden de marcha.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> puede influir en el manejo,
+                las maniobras y la facilidad para estacionar.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="altura asiento dimensiones ergonomia comodidad">
+            <div class="icono">📏</div>
+            <h3>Altura del asiento</h3>
+            <p>
+                Es la distancia desde el suelo hasta el asiento.
+                Puede influir en la facilidad para apoyar los pies
+                al detenerse.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> ayuda a valorar si la
+                ergonomía se adapta al conductor.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="velocidad maxima km h rendimiento limites legales">
+            <div class="icono">💨</div>
+            <h3>Velocidad máxima</h3>
+            <p>
+                Es la velocidad máxima que puede alcanzar una moto
+                bajo determinadas condiciones. Puede variar según
+                la versión, el terreno y la carga.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> sirve para comparar
+                especificaciones, siempre respetando los límites de tránsito.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="bateria sistema electrico luces arranque">
+            <div class="icono">🔋</div>
+            <h3>Sistema eléctrico</h3>
+            <p>
+                Incluye batería, sistema de carga, luces,
+                tablero y componentes electrónicos.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> permite el funcionamiento
+                de los sistemas eléctricos de la moto.
+            </p>
+        </article>
+
+        <article class="caracteristica"
+                 data-busqueda="mantenimiento aceite filtros cadena revision">
+            <div class="icono">🧰</div>
+            <h3>Mantenimiento</h3>
+            <p>
+                Incluye revisiones periódicas, cambios de aceite,
+                filtros, cadena, frenos, llantas y otros componentes
+                según las instrucciones del fabricante.
+            </p>
+            <p class="ejemplo">
+                <strong>Importancia:</strong> ayuda a conservar el
+                funcionamiento y la seguridad de la motocicleta.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="tabla-contenedor">
+        <h2 class="titulo-seccion">
+            Resumen de <span class="verde">datos técnicos</span>
+        </h2>
+
+        <p class="subtitulo">
+            Estos son ejemplos de los datos que puedes comparar entre motos.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Unidad habitual</th>
+                    <th>¿Qué indica?</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Cilindrada</td>
+                    <td>cc</td>
+                    <td>Volumen desplazado por los pistones.</td>
+                </tr>
+
+                <tr>
+                    <td>Potencia</td>
+                    <td>hp o kW</td>
+                    <td>Capacidad de trabajo del motor.</td>
+                </tr>
+
+                <tr>
+                    <td>Torque</td>
+                    <td>Nm</td>
+                    <td>Fuerza de giro del motor.</td>
+                </tr>
+
+                <tr>
+                    <td>Consumo</td>
+                    <td>km/l o l/100 km</td>
+                    <td>Combustible utilizado por distancia.</td>
+                </tr>
+
+                <tr>
+                    <td>Tanque</td>
+                    <td>Litros (L)</td>
+                    <td>Capacidad de combustible.</td>
+                </tr>
+
+                <tr>
+                    <td>Peso</td>
+                    <td>Kilogramos (kg)</td>
+                    <td>Masa de la motocicleta.</td>
+                </tr>
+
+                <tr>
+                    <td>Velocidad máxima</td>
+                    <td>km/h</td>
+                    <td>Velocidad máxima declarada o medida.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<section class="aviso">
+    <h2 class="verde">Recuerda</h2>
+
+    <p>
+        Las especificaciones cambian según la marca, el modelo,
+        el año y la versión de cada motocicleta. Consulta siempre
+        la ficha técnica oficial del fabricante antes de comparar
+        cifras o tomar una decisión.
+    </p>
+
+    <a href="catalogo.html" class="boton">
+        Volver al catálogo de motos →
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 <strong>ELITROX</strong></p>
+    <p>Proyecto educativo sobre motocicletas</p>
+    <p>Más allá de la velocidad</p>
+</footer>
+
+<script>
+    const buscador = document.getElementById("buscarCaracteristica");
+    const tarjetas = document.querySelectorAll(".caracteristica");
+
+    buscador.addEventListener("input", function () {
+        const texto = buscador.value.toLowerCase().trim();
+
+        tarjetas.forEach(function (tarjeta) {
+            const contenido = tarjeta.innerText.toLowerCase();
+            const palabrasClave =
+                tarjeta.dataset.busqueda.toLowerCase();
+
+            const coincide =
+                contenido.includes(texto) ||
+                palabrasClave.includes(texto);
+
+            tarjeta.hidden = !coincide;
+        });
+    });
+</script>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

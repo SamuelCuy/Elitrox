@@ -1,0 +1,22 @@
+ELITROX — versión visual mejorada
+
+CONTENIDO
+- Inicio.html: página principal.
+- catalogo.html: catálogo con búsqueda y filtros.
+- Caracteristicas.html: buscador de características técnicas.
+- Marcas.html: marcas con filtro.
+- Quienes-somos.html: información del proyecto.
+- Contacto.html y procesar_contacto.php: formulario y validación.
+- Estilo.css y css/mejoras.css: estilos originales y capa visual mejorada.
+- js/script.js: menú móvil, tema claro/oscuro y consejos.
+
+USO
+1. Descomprime la carpeta dentro de htdocs si usas XAMPP.
+2. Inicia Apache desde el panel de XAMPP.
+3. Abre http://localhost/elitrox_mejorado/Inicio.html
+4. El formulario PHP requiere servidor PHP (no funciona abriendo el archivo con file://).
+
+NOTAS
+- Las fotografías de Unsplash y las fuentes de Google requieren conexión a Internet.
+- El formulario valida y muestra los datos de forma segura, pero no envía correos ni almacena mensajes.
+- La información técnica de las motos se conserva como contenido ilustrativo del proyecto; verifica fichas oficiales antes de publicar especificaciones.
